@@ -19,8 +19,7 @@
                     item_text.innerHTML = "";
 
                     for(let i =0; i < item_objects.length; i++) {
-                        item_text.innerHTML += "<h2>" + item_objects[i].name  + "</h2>" + "  "  +  "<h2>" + item_objects[i].price +"</h2>";
-
+                        item_text.innerHTML += "<h2>" + item_objects[i].name  + "</h2>" + "  "  +  "<p>" + item_objects[i].price +"</p>";
                         item_text.innerHTML += "<br>"
 
                     }
@@ -35,37 +34,16 @@
         </script>
         
 
-
         <h1>Hello, world!</h1>
 		
-		<div id="container">
-            <input type="text" placeholder="search item" id="search">
-            <button onclick="search();"><img src="images/search.png"></button>
-		</div>
+    		<div id="container">
+                <input type="text" placeholder="search item" id="search">
+                {% load static %}
+                <button onclick="search();"><img src= "{% static 'search.png' %}" width="16" height="16"></button>
+    		</div>
 
-		<div id="item" ></div>
-
-
-        <script>
-            let xhttp = new XMLHttpRequest();    
-            xhttp.onload = function() {
-                item_objects = JSON.parse(this.responseText);
-
-                let item_text = document.getElementById("item");
-				for(let i =0; i < item_objects.length; i++) {
-					item_text.innerHTML += "<h2>" + item_objects[i].name  + "</h2>" + "  "  +  "<h2>" + item_objects[i].price +"</h2>";
-
-                    item_text.innerHTML += "<br>"
-
-				}
-        
-
-            }
-             xhttp.open("GET", "/items/search?name=Test&price=10&price_search_type=lower_than", false);
-
-             xhttp.send();
-
-        </script>
+    		<div id="item" ></div>
+        <script src="{% static 'home_page.js' %}"></script>
 
     </body>
 
