@@ -1,9 +1,10 @@
+{% load static %}
 <!DOCTYPE HTML>
 <html>
     <head>
 		<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
         <title>Cool site</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="{% static 'style.css' %}">
 	</head>
 
     <body>
@@ -38,7 +39,6 @@
 		
     		<div id="container">
                 <input type="text" placeholder="search item" id="search">
-                {% load static %}
                 <button onclick="search();"><img src= "{% static 'search.png' %}" width="16" height="16"></button>
     		</div>
 
