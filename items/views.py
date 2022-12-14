@@ -37,6 +37,9 @@ def search(request):
 
         price = Decimal(price)
 
+        if price is None:
+            return HttpResponse("Bug")
+
         if price < 0.0:
             return HttpResponse("Price must be positive")
 
