@@ -5,13 +5,14 @@ from .models import Item
 
 
 def view_item(request, item_id):
-    item = Item.objects.filter(item_id=item_id)
+    item = Item.objects.filter(item_id=item_id).first()
 
-    if item.exists():
-        return HttpResponse(json.dumps(item.first().json()))
+    if item is not None:
+        print(item)
+        return render(request, "view_item.html", item.json())
 
     else:
-        return HttpResponse("{}")
+        return render(request, "404.html")
 
 
 def search(request):

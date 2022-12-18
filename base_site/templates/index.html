@@ -22,7 +22,7 @@
                     item_text.innerHTML = "";
 
                     for(let i =0; i < item_objects.length; i++) {
-                        item_text.innerHTML += "<h2>" + item_objects[i].name  + "</h2>" + "  "  +  "<p>" + item_objects[i].price +"</p>";
+                        item_text.innerHTML += "<h2><a href='/items/view_item/" + item_objects[i].item_id + "'>" + item_objects[i].name  + "</a></h2>" + "  "  +  "<p>" + item_objects[i].price +"</p>";
                         item_text.innerHTML += "<br>"
 
                     }
