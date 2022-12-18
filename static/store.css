@@ -1,0 +1,40 @@
+.page-header {
+    background-color: #7a695d;
+    margin-top: 0;
+    margin-bottom: 40px;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1,
+.page-header h1 a,
+.page-header h1 a:visited,
+.page-header h1 a:active {
+    color: #644f4f;
+    font-size: 28pt;
+    text-decoration: none;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Lobster', cursive;
+}
+
+h1{
+    
+    font-size: 43px;
+    color: rgb(57, 71, 216)
+
+}
+
+body{
+    background-color: #9e9187;
+
+}
