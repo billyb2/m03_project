@@ -1,5 +1,3 @@
-import json
-from django.core import serializers
 from django.db import models
 
 
@@ -22,3 +20,8 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Purchase(models.Model):
+    purchase_id = models.AutoField(primary_key=True)
+    item_id = models.IntegerField()

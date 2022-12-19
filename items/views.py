@@ -1,14 +1,39 @@
 import json
 from decimal import *
 from django.shortcuts import render, HttpResponse
-from .models import Item
+from .models import Item, Purchase
+
+
+def purchase_item_confirmation(request, item_id):
+    item = Item.objects.filter(item_id=item_id).first()
+
+    if item is None:
+        return render(request, "404.html")
+
+    return render(request, "purchase_item_confirmation.html", item.json())
+
+
+def purchase_item(request, item_id):
+    item = Item.objects.filter(item_id=item_id).first()
+
+    if item is None:
+        return render(request, "404.html")
+
+    if request.method != "POST":
+        return HttpResponse("GET request required")
+
+    purchase = Purchase(item_id=item.item_id)
+    purchase.save()
+
+    num_purchases = Purchase.objects.filter(item_id=item_id).count()
+
+    return render(request, "purchase_complete.html", { "name": item.name, "num_purchases": num_purchases })
 
 
 def view_item(request, item_id):
     item = Item.objects.filter(item_id=item_id).first()
 
     if item is not None:
-        print(item)
         return render(request, "view_item.html", item.json())
 
     else:
@@ -34,7 +59,6 @@ def search(request):
 
         if price is None:
             return HttpResponse("Price required when using price_search_type")
-
 
         price = Decimal(price)
 

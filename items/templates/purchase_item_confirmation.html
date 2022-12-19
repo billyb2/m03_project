@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Purchase a {{ name }} for {{ price }}?</h1>
+    <form action="/items/purchase_item/{{ item_id }}" method="post">
+      {% csrf_token %}
+      <label for = "name">Name: </label><br>
+      <input type="text" name="name"><br>
+      <input type="submit" value="Confirm">
+      <button>Cancel</button>
+    </form>
+
+    <script>
+      function cancel_purchase() {
+        window.location.href = "/items/view_item/{{ item_id }}"
+      
+      }
+    </script>
+  </body>
+</html>
