@@ -10,6 +10,14 @@
     <h1>Will & Cass Supermart</h1>
 
     <body class ="center">
+      
+    		<div id="container">
+                <input type="text" placeholder="search item" id="search">
+                <button onclick="search();"><img src= "{% static 'search.png' %}" width="16" height="16"></button>
+    		</div>
+
+    		<div id="item" ></div>
+
         <script>
             function search() {
                 let item_search = document.getElementById("search");
@@ -34,19 +42,9 @@
                 xhttp.send();
 
             }
+
+            search();
         </script>
-
-
-       
-		
-    		<div id="container">
-                <input type="text" placeholder="search item" id="search">
-                <button onclick="search();"><img src= "{% static 'search.png' %}" width="16" height="16"></button>
-    		</div>
-
-    		<div id="item" ></div>
-
-
 
     </body>
 
